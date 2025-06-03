@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mindly Chatbot</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f8fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chat-container {
+      width: 100%;
+      max-width: 500px;
+      height: 90vh;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      background-color: #c7d2fe;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #1e3a8a;
+      font-size: 18px;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    .message {
+      max-width: 80%;
+      margin-bottom: 12px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .user {
+      align-self: flex-end;
+      background-color: #dbeafe;
+      color: #1e3a8a;
+      margin-left: auto;
+    }
+
+    .bot {
+      align-self: flex-start;
+      background-color: #f0fdf4;
+      color: #065f46;
+      margin-right: auto;
+    }
+
+    .chat-input-area {
+      display: flex;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f9fafb;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .chat-input-area button {
+      margin-left: 10px;
+      padding: 10px 18px;
+      border: none;
+      background-color: #a5b4fc;
+      color: #1e3a8a;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .chat-input-area button:hover {
+      background-color: #818cf8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      💬 Mindly AI Chatbot
+    </div>
+
+    <div class="chat-messages" id="chat">
+      <div class="message bot">Hi! I’m here to support your mental health. How are you feeling today?</div>
+      <div class="message user">I feel anxious about my exams.</div>
+      <div class="message bot">That's okay. Try some deep breathing, or would you like a calming technique?</div>
+    </div>
+
+    <div class="chat-input-area">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chat = document.getElementById('chat');
+
+      if (input.value.trim() === "") return;
+
+      const userMessage = document.createElement('div');
+      userMessage.className = 'message user';
+      userMessage.textContent = input.value;
+      chat.appendChild(userMessage);
+
+      // Simulate bot response (you can replace this with backend logic)
+      const botMessage = document.createElement('div');
+      botMessage.className = 'message bot';
+      botMessage.textContent = "Thanks for sharing. Would you like a tip or breathing technique?";
+      setTimeout(() => {
+        chat.appendChild(botMessage);
+        chat.scrollTop = chat.scrollHeight;
+      }, 500);
+
+      input.value = "";
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>

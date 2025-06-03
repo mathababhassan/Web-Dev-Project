@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DASS-21 Assessment | Mindly</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f8fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: #1e3a8a;
+    }
+
+    .consent {
+      background-color: #fff6e6;
+      border-left: 5px solid #f59e0b;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 10px;
+    }
+
+    .question label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .scale-options {
+      display: flex;
+      gap: 10px;
+    }
+
+    .scale-options label {
+      font-weight: normal;
+    }
+
+    .submit-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 25px;
+      background-color: #a4cafe;
+      border: none;
+      border-radius: 25px;
+      color: #1e3a8a;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #82b0f4;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DASS-21 Self-Assessment</h1>
+
+    <div class="consent">
+      ⚠️ Please confirm you have read and agree to the PDPA terms. Your answers will be kept confidential and used only for personal tracking.
+    </div>
+
+    <!-- Sample Questions (Repeat or generate all 21 in PHP later) -->
+    <form>
+      <div class="question">
+        <label for="q1">1. I found it hard to wind down.</label>
+        <div class="scale-options">
+          <label><input type="radio" name="q1" value="0" required> 0</label>
+          <label><input type="radio" name="q1" value="1"> 1</label>
+          <label><input type="radio" name="q1" value="2"> 2</label>
+          <label><input type="radio" name="q1" value="3"> 3</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label for="q2">2. I was aware of dryness of my mouth.</label>
+        <div class="scale-options">
+          <label><input type="radio" name="q2" value="0" required> 0</label>
+          <label><input type="radio" name="q2" value="1"> 1</label>
+          <label><input type="radio" name="q2" value="2"> 2</label>
+          <label><input type="radio" name="q2" value="3"> 3</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label for="q3">3. I couldn’t seem to experience any positive feeling at all.</label>
+        <div class="scale-options">
+          <label><input type="radio" name="q3" value="0" required> 0</label>
+          <label><input type="radio" name="q3" value="1"> 1</label>
+          <label><input type="radio" name="q3" value="2"> 2</label>
+          <label><input type="radio" name="q3" value="3"> 3</label>
+        </div>
+      </div>
+
+      <!-- Repeat until q21 -->
+
+      <button class="submit-btn" type="submit">Submit Assessment</button>
+    </form>
+
+    <div class="note">
+      Your answers will be saved securely. You may retake the quiz anytime.
+    </div>
+  </div>
+</body>
+</html>

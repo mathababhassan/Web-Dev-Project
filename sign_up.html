@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Mindly</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="auth-page">
+
+    <!-- Left Section: Sign Up Form -->
+    <section class="auth-form-section">
+      <h1 class="auth-title">Sign Up</h1>
+
+      <form action="dashboard.html" method="POST" class="auth-form">
+
+        <label for="name">FULL NAME</label>
+        <input type="text" id="name" name="name" placeholder="Spongebob Squarepants" required />
+
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" name="email" placeholder="spongebob@krustycrab.com" required />
+
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password" name="password" placeholder="Password" required />
+
+        <label for="confirm">CONFIRM PASSWORD</label>
+        <input type="password" id="confirm" name="confirm_password" placeholder="Password" required />
+
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+
+        <p class="auth-redirect">
+          Already have an account? <a href="login.html" class="link-small">Login</a>
+        </p>
+      </form>
+    </section>
+
+    <!-- Right Section: Logo -->
+    <section class="auth-info-section">
+      <img src="logo.svg" alt="Mindly Logo" class="logo" />
+    </section>
+
+  </main>
+
+</body>
+</html>

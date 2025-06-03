@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assessment History | Mindly</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f8fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    thead {
+      background-color: #dbeafe;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 12px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 13px;
+      text-align: center;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        background: #f9fafb;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 0 4px rgba(0,0,0,0.05);
+      }
+
+      td {
+        text-align: left;
+        padding: 8px;
+        border: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 4px;
+        color: #333;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Assessment History</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Depression</th>
+          <th>Anxiety</th>
+          <th>Stress</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Date">May 25, 2025</td>
+          <td data-label="Depression">10 (Mild)</td>
+          <td data-label="Anxiety">12 (Moderate)</td>
+          <td data-label="Stress">6 (Normal)</td>
+        </tr>
+        <tr>
+          <td data-label="Date">May 12, 2025</td>
+          <td data-label="Depression">14 (Moderate)</td>
+          <td data-label="Anxiety">10 (Mild)</td>
+          <td data-label="Stress">9 (Normal)</td>
+        </tr>
+        <tr>
+          <td data-label="Date">April 30, 2025</td>
+          <td data-label="Depression">8 (Normal)</td>
+          <td data-label="Anxiety">9 (Normal)</td>
+          <td data-label="Stress">7 (Normal)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note">
+      This log shows your recent mental health assessments for tracking trends over time.
+    </div>
+  </div>
+
+</body>
+</html>

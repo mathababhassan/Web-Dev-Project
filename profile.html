@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile | Mindly</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f4f8fc;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      color: #1e3a8a;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #c7d2fe;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #1e3a8a;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #a5b4fc;
+    }
+
+    .danger-zone {
+      background-color: #fef2f2;
+      border-left: 5px solid #dc2626;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .danger-zone button {
+      background-color: #fecaca;
+      color: #b91c1c;
+    }
+
+    .assessment-summary {
+      background-color: #f0f9ff;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .assessment-summary p {
+      margin: 8px 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Profile</h1>
+
+    <!-- Account Info -->
+    <div class="section">
+      <h2>Edit Account Info</h2>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Sarah Musa" />
+      </div>
+      <div class="form-group">
+        <label for="email">UTM Email</label>
+        <input type="email" id="email" placeholder="sarah@student.utm.my" />
+      </div>
+      <button>Save Changes</button>
+    </div>
+
+    <!-- Change Password -->
+    <div class="section">
+      <h2>Change Password</h2>
+      <div class="form-group">
+        <label for="current">Current Password</label>
+        <input type="password" id="current" />
+      </div>
+      <div class="form-group">
+        <label for="new">New Password</label>
+        <input type="password" id="new" />
+      </div>
+      <button>Update Password</button>
+    </div>
+
+    <!-- Assessment History -->
+    <div class="section">
+      <h2>Assessment Summary</h2>
+      <div class="assessment-summary">
+        <p><strong>Last Taken:</strong> May 25, 2025</p>
+        <p><strong>Depression:</strong> Mild (10)</p>
+        <p><strong>Anxiety:</strong> Moderate (12)</p>
+        <p><strong>Stress:</strong> Normal (6)</p>
+      </div>
+    </div>
+
+    <!-- Danger Zone -->
+    <div class="section danger-zone">
+      <h2>⚠️ Delete Account</h2>
+      <p>This action is permanent and will remove all your data.</p>
+      <button>Delete My Account</button>
+    </div>
+  </div>
+
+</body>
+</html>
