@@ -105,32 +105,32 @@
     <h1>Profile</h1>
 
     <!-- Account Info -->
-    <div class="section">
+    <form id="updateInfoForm" class="section" method="post" action="profile.php">
       <h2>Edit Account Info</h2>
       <div class="form-group">
         <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Sarah Musa" />
+        <input type="text" id="name" name="name" placeholder="Sarah Musa" />
       </div>
       <div class="form-group">
         <label for="email">UTM Email</label>
-        <input type="email" id="email" placeholder="sarah@student.utm.my" />
+        <input type="email" id="email" name="email" placeholder="sarah@student.utm.my" />
       </div>
-      <button>Save Changes</button>
-    </div>
+      <button type="submit" name="updateInfo">Save Changes</button>
+    </form>
 
     <!-- Change Password -->
-    <div class="section">
+    <form id="updatePasswordForm" class="section" method="post" action="profile.php">
       <h2>Change Password</h2>
       <div class="form-group">
         <label for="current">Current Password</label>
-        <input type="password" id="current" />
+        <input type="password" id="current" name="current" required/>
       </div>
       <div class="form-group">
         <label for="new">New Password</label>
-        <input type="password" id="new" />
+        <input type="password" id="new" name="new" required/>
       </div>
-      <button>Update Password</button>
-    </div>
+      <button type="submit" name="updatePassword" >Update Password</button>
+    </form>
 
     <!-- Assessment History -->
     <div class="section">
@@ -144,12 +144,11 @@
     </div>
 
     <!-- Danger Zone -->
-    <div class="section danger-zone">
+    <form id="deleteAccountForm" class="section danger-zone" method="post" action="delete_account.php">
       <h2>⚠️ Delete Account</h2>
       <p>This action is permanent and will remove all your data.</p>
-      <button>Delete My Account</button>
-    </div>
-  </div>
-
+      <button type="submit" name="deleteAccount" >Delete My Account</button>
+  </form>
+<script src="profile.js"></script>
 </body>
 </html>
