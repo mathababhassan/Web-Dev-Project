@@ -9,12 +9,11 @@
 <body>
 
   <main class="auth-page">
-
     <!-- Left Section: Sign Up Form -->
     <section class="auth-form-section">
       <h1 class="auth-title">Sign Up</h1>
 
-      <form action="dashboard.html" method="POST" class="auth-form">
+      <form action="sign_up.php" method="POST" class="auth-form">
 
         <label for="name">FULL NAME</label>
         <input type="text" id="name" name="name" placeholder="Spongebob Squarepants" required />
@@ -24,6 +23,9 @@
 
         <label for="password">PASSWORD</label>
         <input type="password" id="password" name="password" placeholder="Password" required />
+      
+        <div id="power-point" style="height: 8px; width: 1%; background: #ccc; margin-top: 6px; transition: width 0.3s;"></div>
+        <small id="strength-text" style="color: white; display: block; margin-top: 4px;"></small>
 
         <label for="confirm">CONFIRM PASSWORD</label>
         <input type="password" id="confirm" name="confirm_password" placeholder="Password" required />
@@ -35,6 +37,7 @@
         </p>
       </form>
     </section>
+    </div>
 
     <!-- Right Section: Logo -->
     <section class="auth-info-section">
@@ -43,5 +46,7 @@
 
   </main>
 
+<script src="sign_up.js"></script>
+<script src="password_strength_check.js"></script>
 </body>
 </html>
