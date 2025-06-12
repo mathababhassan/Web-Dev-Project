@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
-<!-- HTML + Styling + 6 boxes + JS -->
+<!-- HTML + CSS -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
