@@ -1,3 +1,34 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.html");
+  exit();
+}
+
+// Connect to database
+include "connect.php";
+
+// Get latest assessment for the logged-in user
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM assessments WHERE user_id = $user_id ORDER BY created_at DESC LIMIT 1";
+$result = mysqli_query($conn, $sql);
+
+// Default values
+$stress = "No data";
+$anxiety = "No data";
+$depression = "No data";
+
+// If result found, fetch scores
+if (mysqli_num_rows($result) > 0) {
+  $row = mysqli_fetch_assoc($result);
+  $stress = $row['stress_score'];
+  $anxiety = $row['anxiety_score'];
+  $depression = $row['depression_score'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,20 +76,12 @@
       <h2>Latest Assessment Results</h2>
 
       <div class="results-grid">
-        <div class="result-card stress">
-          <p><strong>Stress</strong></p>
-          <span>2</span>
-        </div>
-        <div class="result-card anxiety">
-          <p><strong>Anxiety</strong></p>
-          <span>1</span>
-        </div>
-        <div class="result-card depression">
-          <p><strong>Depression</strong></p>
-          <span>3</span>
-        </div>
+      <h2>Your Latest Results</h2>
+        <div class="result-card"><strong>Stress:</strong> <?php echo $stress; ?></div>
+        <div class="result-card"><strong>Anxiety:</strong> <?php echo $anxiety; ?></div>
+        <div class="result-card"><strong>Depression:</strong> <?php echo $depression; ?></div>
       </div>
-
+      
       <a href="assessment.html" class="btn btn-light">Retake Assessment</a>
     </section>
 
