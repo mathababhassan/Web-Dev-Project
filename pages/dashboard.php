@@ -110,6 +110,6 @@ if (mysqli_num_rows($result) > 0) {
     <p>© Mindly · All rights reserved</p>
     <a href="#">Privacy Policy</a>
   </footer>
-
+<script src="logout.js"></script>
 </body>
 </html>
