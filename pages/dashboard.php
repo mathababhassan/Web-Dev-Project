@@ -1,26 +1,32 @@
 <?php
 session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.html");
+  exit();
+}
+
+// Connect to database
 include "connect.php";
-include "authentication.php";
 
+// Get latest assessment for the logged-in user
 $user_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM assessments WHERE user_id = $user_id ORDER BY created_at DESC LIMIT 1";
+$result = mysqli_query($conn, $sql);
 
-$sql = "SELECT depression_score, anxiety_score, stress_score 
-        FROM assessments 
-        WHERE user_id = ? 
-        ORDER BY created_at DESC 
-        LIMIT 1";
+// Default values
+$stress = "No data";
+$anxiety = "No data";
+$depression = "No data";
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-$row = $result->fetch_assoc();
-
-$stress = $row['stress_score'] ?? '-';
-$anxiety = $row['anxiety_score'] ?? '-';
-$depression = $row['depression_score'] ?? '-';
+// If result found, fetch scores
+if (mysqli_num_rows($result) > 0) {
+  $row = mysqli_fetch_assoc($result);
+  $stress = $row['stress_score'];
+  $anxiety = $row['anxiety_score'];
+  $depression = $row['depression_score'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +35,7 @@ $depression = $row['depression_score'] ?? '-';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard | Mindly</title>
+  <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css" />
 </head>
 <body>
@@ -36,11 +43,11 @@ $depression = $row['depression_score'] ?? '-';
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo-area">
-      <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
+      <img src="logo.svg" alt="Mindly Logo" class="logo" />
       <span class="site-name">Mindly</span>
     </div>
     <nav class="nav-links">
-      <a href="dashboard.php">Dashboard</a>
+      <a href="dashboard.html">Dashboard</a>
       <a href="chatbot.html">Chatbot</a>
       <a href="profile.html">Profile</a>
     </nav>
@@ -70,20 +77,12 @@ $depression = $row['depression_score'] ?? '-';
       <h2>Latest Assessment Results</h2>
 
       <div class="results-grid">
-        <div class="result-card stress">
-          <p><strong>Stress</strong></p>
-          <span><?php echo $stress; ?></span>
-        </div>
-        <div class="result-card anxiety">
-          <p><strong>Anxiety</strong></p>
-          <span><?php echo $anxiety; ?></span>
-        </div>
-        <div class="result-card depression">
-          <p><strong>Depression</strong></p>
-          <span><?php echo $depression; ?></span>
-        </div>
+      <h2>Your Latest Results</h2>
+        <div class="result-card"><strong>Stress:</strong> <?php echo $stress; ?></div>
+        <div class="result-card"><strong>Anxiety:</strong> <?php echo $anxiety; ?></div>
+        <div class="result-card"><strong>Depression:</strong> <?php echo $depression; ?></div>
       </div>
-
+      
       <a href="assessment.html" class="btn btn-light">Retake Assessment</a>
     </section>
 
