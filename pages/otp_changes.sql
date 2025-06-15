@@ -1,0 +1,1 @@
+ALTER TABLE users ADD otp_code VARCHAR(6), ADD otp_expiry DATETIME;

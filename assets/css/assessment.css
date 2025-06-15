@@ -1,0 +1,41 @@
+body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #F3FFF8;
+      border-radius: 6px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .options label {
+      font-weight: normal;
+      margin-right: 15px;
+    }
+    .submit-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #0F766E;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #14B8A6;
+    }

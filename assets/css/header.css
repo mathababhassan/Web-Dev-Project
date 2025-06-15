@@ -1,0 +1,58 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px 18px 0;
+  border-bottom: 1px solid #d3e8dd;
+
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px; /* spacing between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+}
+/*** NAVLINKS TYPOGRAPHY & COLOR ***/
+.nav-links a{
+  color: var(--clr-text-dark);
+}
+
+.nav-links a:hover{
+  color: var(--clr-primary);
+}
+
+/*** LOGO LAYOUT ***/
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 1.5rem;
+  padding: 0;
+  flex: 0 1 auto; 
+  width: fit-content;
+}
+
+.logo {
+  max-height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/*** SITE NAME LAYOUT ***/
+.site-name {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  white-space: nowrap;    
+}
+
+/*** SITE NAME TYPOGRAPHY & COLOR ***/
+.site-name{
+  font-weight: 600;       
+  font-size: 1.5rem;     
+  line-height: 1;     
+}

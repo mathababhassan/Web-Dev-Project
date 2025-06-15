@@ -36,6 +36,7 @@ if (mysqli_num_rows($result) > 0) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard | Mindly</title>
   <link rel="stylesheet" href="../assets/css/header.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css" />
 </head>
 <body>
@@ -43,13 +44,13 @@ if (mysqli_num_rows($result) > 0) {
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo-area">
-      <img src="logo.svg" alt="Mindly Logo" class="logo" />
+      <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
       <span class="site-name">Mindly</span>
     </div>
     <nav class="nav-links">
       <a href="dashboard.html">Dashboard</a>
-      <a href="chatbot.html">Chatbot</a>
       <a href="profile.html">Profile</a>
+      <a href="logout.html">Logout</a>
     </nav>
   </header>
 
@@ -77,12 +78,20 @@ if (mysqli_num_rows($result) > 0) {
       <h2>Latest Assessment Results</h2>
 
       <div class="results-grid">
-      <h2>Your Latest Results</h2>
-        <div class="result-card"><strong>Stress:</strong> <?php echo $stress; ?></div>
-        <div class="result-card"><strong>Anxiety:</strong> <?php echo $anxiety; ?></div>
-        <div class="result-card"><strong>Depression:</strong> <?php echo $depression; ?></div>
+        <div class="result-card stress">
+          <p><strong>Stress</strong></p>
+          <span><?php echo $stress; ?></span>
+        </div>
+        <div class="result-card anxiety">
+          <p><strong>Anxiety</strong></p>
+          <span><?php echo $anxiety; ?></span>
+        </div>
+        <div class="result-card depression">
+          <p><strong>Depression</strong></p>
+          <span><?php echo $depression; ?></span>
+        </div>
       </div>
-      
+
       <a href="assessment.html" class="btn btn-light">Retake Assessment</a>
     </section>
 
