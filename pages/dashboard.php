@@ -1,3 +1,28 @@
+<?php
+session_start();
+include "connect.php";
+include "authentication.php";
+
+$user_id = $_SESSION['user_id'];
+
+$sql = "SELECT depression_score, anxiety_score, stress_score 
+        FROM assessments 
+        WHERE user_id = ? 
+        ORDER BY created_at DESC 
+        LIMIT 1";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$row = $result->fetch_assoc();
+
+$stress = $row['stress_score'] ?? '-';
+$anxiety = $row['anxiety_score'] ?? '-';
+$depression = $row['depression_score'] ?? '-';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +40,7 @@
       <span class="site-name">Mindly</span>
     </div>
     <nav class="nav-links">
-      <a href="dashboard.html">Dashboard</a>
+      <a href="dashboard.php">Dashboard</a>
       <a href="chatbot.html">Chatbot</a>
       <a href="profile.html">Profile</a>
     </nav>
@@ -47,15 +72,15 @@
       <div class="results-grid">
         <div class="result-card stress">
           <p><strong>Stress</strong></p>
-          <span>2</span>
+          <span><?php echo $stress; ?></span>
         </div>
         <div class="result-card anxiety">
           <p><strong>Anxiety</strong></p>
-          <span>1</span>
+          <span><?php echo $anxiety; ?></span>
         </div>
         <div class="result-card depression">
           <p><strong>Depression</strong></p>
-          <span>3</span>
+          <span><?php echo $depression; ?></span>
         </div>
       </div>
 
