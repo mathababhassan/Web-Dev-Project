@@ -60,9 +60,10 @@ body{
 }
 
 .result-header h2 {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin: 0;
+    text-align: center;
 }
 
 /* Content area */
