@@ -34,75 +34,6 @@ function getSeverity($score, $type) {
   else return "Extremely Severe";
 }
 
-// Store values
-$dep = $row['depression_score'];
-$anx = $row['anxiety_score'];
-$str = $row['stress_score'];
-
-$dep_sev = getSeverity($dep, 'depression');
-$anx_sev = getSeverity($anx, 'anxiety');
-$str_sev = getSeverity($str, 'stress');
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>DASS-21 Results</title>
-  <style>
-    body { font-family: Arial; background-color: #f4f8fc; padding: 20px; }
-    .container { background: white; max-width: 700px; margin: auto; padding: 20px; border-radius: 10px; }
-    h2 { text-align: center; }
-    .result-box { background: #e0f0ff; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
-    .interpretation { background: #f0fdf4; border-left: 5px solid #4caf50; padding: 15px; border-radius: 5px; margin-top: 20px; }
-    .btns { text-align: center; margin-top: 20px; }
-    .btns a {
-      display: inline-block;
-      background: #4CAF50;
-      color: white;
-      padding: 10px 15px;
-      margin: 0 10px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    .note { font-size: 13px; text-align: center; margin-top: 30px; color: gray; }
-  </style>
-</head>
-<body>
-
-<div class="container">
-  <h2>Your DASS-21 Results</h2>
-
-  <div class="result-box">
-    <strong>Depression:</strong> <?php echo $dep; ?> (<?php echo $dep_sev; ?>)
-  </div>
-  <div class="result-box">
-    <strong>Anxiety:</strong> <?php echo $anx; ?> (<?php echo $anx_sev; ?>)
-  </div>
-  <div class="result-box">
-    <strong>Stress:</strong> <?php echo $str; ?> (<?php echo $str_sev; ?>)
-  </div>
-
-  <div class="interpretation">
-    <h3>What this means</h3>
-    <p><strong>Depression:</strong> <?php echo getMessage('depression', $dep_sev); ?></p>
-    <p><strong>Anxiety:</strong> <?php echo getMessage('anxiety', $anx_sev); ?></p>
-    <p><strong>Stress:</strong> <?php echo getMessage('stress', $str_sev); ?></p>
-  </div>
-
-  <div class="btns">
-    <a href="assessment.html">Retake Quiz</a>
-    <a href="recommendations.html">View Tips</a>
-  </div>
-
-  <div class="note">
-    This summary is for your awareness only. If needed, seek help from a clinic or counselor.
-  </div>
-</div>
-
-</body>
-</html>
-
-<?php
 //getMessage function
 function getMessage($type, $level) {
   $tips = [
@@ -118,16 +49,159 @@ function getMessage($type, $level) {
       'Mild' => "Mild anxiety is common. Try breathing or grounding exercises.",
       'Moderate' => "Slow down. If it persists, consider professional support.",
       'Severe' => "Overwhelming anxiety is valid—speak to a trusted person or clinic.",
-      'Extremely Severe' => "You’re not alone. Strongly consider contacting a health provider soon."
+      'Extremely Severe' => "You're not alone. Strongly consider contacting a health provider soon."
     ],
     'stress' => [
       'Normal' => "You're coping well emotionally. Keep checking in with yourself.",
       'Mild' => "Mild stress is manageable. Self-care can make a big difference.",
       'Moderate' => "Rest and recharge. If it worsens, speak to a support person.",
-      'Severe' => "High stress isn’t yours to carry alone—seek a counselor or clinic.",
+      'Severe' => "High stress isn't yours to carry alone—seek a counselor or clinic.",
       'Extremely Severe' => "Very high stress needs attention—help is available and you're not alone."
     ]
   ];
   return $tips[$type][$level];
 }
+
+// Store values
+$dep = $row['depression_score'];
+$anx = $row['anxiety_score'];
+$str = $row['stress_score'];
+
+$dep_sev = getSeverity($dep, 'depression');
+$anx_sev = getSeverity($anx, 'anxiety');
+$str_sev = getSeverity($str, 'stress');
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DASS-21 Results</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/results.css">
+  <link rel="stylesheet" href="../assets/css/header.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+
+</head>
+<body>
+ <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
+      <span class="site-name">Mindly</span>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.php">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- RESUTS SUMMARY -->
+    <div class="container">
+        <h1 class="page-title">Results</h1>
+        
+        <div class="results-grid">
+            <!-- Stress Results -->
+            <div class="result-card">
+                <div class="result-header">
+                    <h2>Stress</h2>
+                </div>
+                <div class="result-content">
+                    <div class="score-section">
+                        <div class="score-display">
+                            <span class="score-number"><?php echo $str; ?></span>
+                            <span class="score-label">Score</span>
+                        </div>
+                        <div class="severity-bar">
+                            <div class="severity-indicator severity-<?php echo strtolower(str_replace(' ', '-', $str_sev)); ?>">
+                                <span class="severity-text"><?php echo $str_sev; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p><?php echo getMessage('stress', $str_sev); ?></p>
+                    </div>
+                    <div class="severity-legend">
+                        <span class="legend-item normal">Normal</span>
+                        <span class="legend-item mild">Mild</span>
+                        <span class="legend-item moderate">Moderate</span>
+                        <span class="legend-item severe">Severe</span>
+                        <span class="legend-item extremely-severe">Extremely Severe</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anxiety Results -->
+            <div class="result-card">
+                <div class="result-header">
+                    <h2>Anxiety</h2>
+                </div>
+                <div class="result-content">
+                    <div class="score-section">
+                        <div class="score-display">
+                            <span class="score-number"><?php echo $anx; ?></span>
+                            <span class="score-label">Score</span>
+                        </div>
+                        <div class="severity-bar">
+                            <div class="severity-indicator severity-<?php echo strtolower(str_replace(' ', '-', $anx_sev)); ?>">
+                                <span class="severity-text"><?php echo $anx_sev; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p><?php echo getMessage('anxiety', $anx_sev); ?></p>
+                    </div>
+                    <div class="severity-legend">
+                        <span class="legend-item normal">Normal</span>
+                        <span class="legend-item mild">Mild</span>
+                        <span class="legend-item moderate">Moderate</span>
+                        <span class="legend-item severe">Severe</span>
+                        <span class="legend-item extremely-severe">Extremely Severe</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depression Results -->
+            <div class="result-card">
+                <div class="result-header">
+                    <h2>Depression</h2>
+                </div>
+                <div class="result-content">
+                    <div class="score-section">
+                        <div class="score-display">
+                            <span class="score-number"><?php echo $dep; ?></span>
+                            <span class="score-label">Score</span>
+                        </div>
+                        <div class="severity-bar">
+                            <div class="severity-indicator severity-<?php echo strtolower(str_replace(' ', '-', $dep_sev)); ?>">
+                                <span class="severity-text"><?php echo $dep_sev; ?></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p><?php echo getMessage('depression', $dep_sev); ?></p>
+                    </div>
+                    <div class="severity-legend">
+                        <span class="legend-item normal">Normal</span>
+                        <span class="legend-item mild">Mild</span>
+                        <span class="legend-item moderate">Moderate</span>
+                        <span class="legend-item severe">Severe</span>
+                        <span class="legend-item extremely-severe">Extremely Severe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+  <div class="btns">
+    <a href="recommendations.html">View Recommendations</a>
+  </div>
+</div>
+
+ <!-- Footer -->
+  <footer class="site-footer">
+    <p>© Mindly · All rights reserved</p>
+    <a href="#">Privacy Policy</a>
+  </footer>
+<script src="logout.js"></script>
+
+</body>
+</html>

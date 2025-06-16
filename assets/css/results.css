@@ -1,0 +1,345 @@
+/******** COLOR THEMES *******/
+
+:root {
+  --clr-background: #f3fff8;
+  --clr-primary-dark: #0f766e;
+  --clr-primary: #14b8a6;
+  --clr-white: #fff;
+  --clr-offwhite: #fefefe;
+  --clr-text-dark: #134e4a;
+  --clr-shadow: rgba(15, 118, 110, 0.15);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--clr-text-dark);
+}
+
+/* Results grid layout */
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Result card styling */
+.result-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Header styling */
+.result-header {
+    background: var(--clr-primary-dark);
+    padding: 15px 25px;
+    color: white;
+}
+
+.result-header h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Content area */
+.result-content {
+    padding: 25px;
+}
+
+/* Score section layout */
+.score-section {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+/* Score display */
+.score-display {
+    background: var(--clr-primary);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Severity bar */
+.severity-bar {
+    flex: 1;
+    height: 50px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    background: #e9ecef;
+}
+
+.severity-indicator {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+/* Severity level colors */
+.severity-normal {
+    background: #28a745;
+    width: 20%;
+}
+
+.severity-mild {
+    background: #ffc107;
+    width: 40%;
+    color: #333;
+}
+
+.severity-moderate {
+    background: #fd7e14;
+    width: 60%;
+}
+
+.severity-severe {
+    background: #dc3545;
+    width: 80%;
+}
+
+.severity-extremely-severe {
+    background: #721c24;
+    width: 100%;
+}
+
+/* Description text */
+.description {
+    margin-bottom: 20px;
+}
+
+.description p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Severity legend */
+.severity-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.legend-item {
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.legend-item.normal {
+    background: #28a745;
+    color: white;
+}
+
+.legend-item.mild {
+    background: #ffc107;
+    color: #333;
+}
+
+.legend-item.moderate {
+    background: #fd7e14;
+    color: white;
+}
+
+.legend-item.severe {
+    background: #dc3545;
+    color: white;
+}
+
+.legend-item.extremely-severe {
+    background: #721c24;
+    color: white;
+}
+/* Button section */
+.btns {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.btns a {
+    display: inline-block;
+    background: var(--clr-primary);
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(168, 179, 217, 0.3);
+    border: none;
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+.btns a:hover {
+    background: var(--clr-primary-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 179, 217, 0.4);
+}
+
+.btns a:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(168, 179, 217, 0.3);
+}
+
+/* Responsive button styling */
+@media (max-width: 768px) {
+    .btns {
+        margin-top: 25px;
+        padding: 15px 0;
+    }
+    
+    .btns a {
+        display: block;
+        width: 100%;
+        max-width: 280px;
+        margin: 10px auto;
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btns a {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        max-width: 250px;
+    }
+}
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .score-section {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .severity-bar {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .result-content {
+        padding: 20px;
+    }
+    
+    .severity-legend {
+        gap: 8px;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .score-number {
+        font-size: 2.5rem;
+    }
+    
+    .severity-indicator {
+        font-size: 1rem;
+    }
+    
+    .description p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Animation for severity indicators */
+@keyframes fillBar {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--target-width);
+    }
+}
+
+.severity-indicator {
+    animation: fillBar 1s ease-out forwards;
+}
+
+.severity-normal {
+    --target-width: 20%;
+}
+
+.severity-mild {
+    --target-width: 40%;
+}
+
+.severity-moderate {
+    --target-width: 60%;
+}
+
+.severity-severe {
+    --target-width: 80%;
+}
+
+.severity-extremely-severe {
+    --target-width: 100%;
+}
