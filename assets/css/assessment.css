@@ -155,6 +155,7 @@
 .submit-btn {
   text-align: center;
   margin-top: 20px;
+
 }
 
 .btn.btn-primary {
@@ -167,6 +168,10 @@
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+   margin: 0 auto;
+  margin-top: 20px;
+  width: 30%;
+
 }
 
 .btn.btn-primary:hover {
@@ -199,7 +204,7 @@
   }
 
   .form-section h2 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .question label {
@@ -213,6 +218,8 @@
   .btn.btn-primary {
     font-size: 1rem;
     padding: 12px 30px;
+    width: 50%;
+    margin: 0 auto;
   }
 }
 
