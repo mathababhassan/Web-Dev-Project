@@ -48,7 +48,7 @@ if (mysqli_num_rows($result) > 0) {
       <span class="site-name">Mindly</span>
     </div>
     <nav class="nav-links">
-      <a href="dashboard.html">Dashboard</a>
+      <a href="dashboard.php">Dashboard</a>
       <a href="profile.html">Profile</a>
       <a href="logout.html">Logout</a>
     </nav>

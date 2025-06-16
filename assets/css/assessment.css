@@ -1,41 +1,306 @@
-body {
-      font-family: Arial, sans-serif;
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-    }
-    h1 {
-      text-align: center;
-    }
-    .question {
-      margin-bottom: 20px;
-      padding: 15px;
-      background: #F3FFF8;
-      border-radius: 6px;
-    }
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-    .options label {
-      font-weight: normal;
-      margin-right: 15px;
-    }
-    .submit-btn {
-      text-align: center;
-      margin-top: 40px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background: #0F766E;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #14B8A6;
-    }
+/******** LAYOUT ********/
+/****** MAIN LAYOUT ****/
+.assessment-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  gap: 50px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.instruction-section {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+
+.instruction-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--clr-text-dark);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* === Assessment Card === */
+.assessment-card {
+  width: 100%;
+  background-color: var(--clr-primary);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+.assessment-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--clr-white);
+}
+
+.assessment-text p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--clr-white);
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+  max-width: 90%;
+}
+
+.assessment-text h2 {
+  font-size:2.2rem;
+  font-weight: 700;
+  color: var(--clr-white);
+  display: block;
+  margin:0;
+  text-align: center;
+}
+
+
+.assessment-text ul.scale-list {
+   font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--clr-white);
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.assessment-text ul.scale-list li::before {
+  color: var(--clr-white);
+  margin-right: 8px;
+}
+
+/*** QUESTIONS SECTION ****/
+/* ================================
+   FORM SECTION
+================================== */
+
+/* === Section Container === */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.form-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--clr-text-dark);
+  margin-bottom: 30px;
+  text-align: left;
+  width: 100%;
+}
+
+/* ================================
+   FORM CARD BOX
+================================== */
+.assessment-form {
+  background-color: var(--clr-primary);
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ================================
+   QUESTION BLOCK
+================================== */
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.question label {
+  font-size: 1.3rem;
+  color: black;
+  flex-wrap: wrap;
+}
+
+/* ================================
+   OPTIONS GROUP
+================================== */
+.options {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Typography */
+.options label {
+  font-size: 1.1rem;
+  color: white;
+  margin: 10px auto;
+}
+
+/* ================================
+   SUBMIT BUTTON
+================================== */
+.submit-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn.btn-primary {
+  background-color: var(--clr-white);
+  color: var(--clr-text-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 12px 40px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+  background-color: var(--clr-text-dark);
+  color: var(--clr-white);
+}
+
+/* ================================
+   NOTE TEXT
+================================== */
+.note {
+  font-size: 0.95rem;
+  color: black;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ================================
+   RESPONSIVENESS
+================================== */
+
+/* === Tablet (max-width: 1024px) === */
+@media (max-width: 1024px) {
+  .form-section {
+    padding: 15px;
+  }
+
+  .assessment-form {
+    padding: 30px 20px;
+  }
+
+  .form-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .question label {
+    font-size: 1rem;
+  }
+
+  .options {
+    gap: 20px;
+  }
+
+  .btn.btn-primary {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
+
+/* === Mobile (max-width: 768px) === */
+@media (max-width: 768px) {
+  .form-section {
+    padding: 10px;
+  }
+
+  .assessment-form {
+    padding: 25px 15px;
+    gap: 25px;
+  }
+
+  .form-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .question label {
+    font-size: 1rem;
+  }
+
+  .options {
+    gap: 15px;
+  }
+
+  .btn.btn-primary {
+    font-size: 1rem;
+    padding: 10px 24px;
+  }
+
+  .note {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+/******** BASE TYPOGRAPHY *********/
+/*** MAIN TYPOGRRAPHY ****/
+
+/********* RESPONSIVENESS ********/
+/**** MAIN INSTRUCTION BOX ********/
+@media (max-width: 1024) {
+  .instruction-section h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .assessment-card {
+    padding: 30px 20px;
+  }
+
+  .assessment-text strong {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .assessment-text ul.scale-list {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .instruction-section h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .instruction-section h2 {
+    font-size: 1.8rem;
+    text-align: left;
+    margin-left: 30px;
+  }
+
+  .assessment-card {
+    padding: 30px 20px;
+  }
+
+  .assessment-text strong {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .assessment-text ul.scale-list {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}
