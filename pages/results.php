@@ -77,9 +77,9 @@ $str_sev = getSeverity($str, 'stress');
 <head>
   <title>DASS-21 Results</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/results.css">
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/results.css">
 
 </head>
 <body>
