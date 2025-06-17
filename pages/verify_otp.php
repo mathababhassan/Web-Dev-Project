@@ -3,7 +3,7 @@ session_start();
 include "connect.php";
 
 if (!isset($_SESSION['otp_email'])) {
-    header("Location: login.html");
+    header("Location: login.php");
     exit();
 }
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             unset($_SESSION['otp_email']);
             include "remember_handler.php";
 
-            header("Location: dashboard.html");
+            header("Location: dashboard.php");
             exit();
         } else {
             $message = " OTP is invalid or expired.";
