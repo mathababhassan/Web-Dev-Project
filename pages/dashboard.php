@@ -50,7 +50,7 @@ if (mysqli_num_rows($result) > 0) {
     <nav class="nav-links">
       <a href="dashboard.php">Dashboard</a>
       <a href="profile.html">Profile</a>
-      <a href="logout.html">Logout</a>
+      <a href="logout.php">Logout</a>
     </nav>
   </header>
 

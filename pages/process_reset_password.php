@@ -49,14 +49,14 @@ $sql = "UPDATE users
         SET password_hash = ?,
             reset_token_hash = NULL,
             reset_token_expires_at = NULL
-        WHERE id = ?";
+        WHERE user_id = ?";
 
 $stmt = $conn->prepare($sql);
 
-$stmt->bind_param("ss", $password_hash, $user["id"]);
+$stmt->bind_param("ss", $password_hash, $user["user_id"]);
 
 $stmt->execute();
 
 // Redirect after success
-header("Location: login.html");
+header("Location: login.php");
 exit();
