@@ -4,113 +4,114 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Personalized Tips | Mindly</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/header.css" />
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: #f4f8fc;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 26px;
-      color: #1e3a8a;
-      margin-bottom: 20px;
-    }
-
-    .tip {
-      border-left: 5px solid #34d399;
-      background-color: #f0fdf4;
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .tip h3 {
-      margin: 0 0 10px 0;
-      font-size: 18px;
-      color: #065f46;
-    }
-
-    .tip p {
-      margin-bottom: 10px;
-      color: #444;
-    }
-
-    .tip-buttons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .tip-buttons button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      background-color: #dbeafe;
-      color: #1e40af;
-    }
-
-    .tip-buttons button:hover {
-      background-color: #bfdbfe;
-    }
-
-    .footer-note {
-      font-size: 13px;
-      color: #666;
-      text-align: center;
-      margin-top: 30px;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/recommendation.css">
 </head>
 <body>
 
+  
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
+      <span class="site-name">Mindly</span>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.php">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="logout.php">Logout</a>
+    </nav>
+  </header>
+
+
+
+  <!-- Main Content -->
+  <main class="dashboard-page">
+
+    <!-- Rec Message Section -->
+    <section class="rec-section">
+      <h1>Your Personalized Recommendations</h1>
+
+
+      <div class="rec-card">
+        <div class="rec-text">
+          <strong>It's important to check in with yourself every now and then</strong>
+          <p>
+            Based on your latest assessment, we’ve selected simple strategies to support your mental well-being. These tips are categorized by what you may be experiencing. Try the ones that feel right for you.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Summary -->
+    <section class="results-section">
+      <h2>Latest Assessment Results</h2>
+
+      <div class="results-grid">
+        <div class="result-card stress">
+          <p><strong>Stress</strong></p>
+          <span><?php echo $stress; ?></span>
+        </div>
+        <div class="result-card anxiety">
+          <p><strong>Anxiety</strong></p>
+          <span><?php echo $anxiety; ?></span>
+        </div>
+        <div class="result-card depression">
+          <p><strong>Depression</strong></p>
+          <span><?php echo $depression; ?></span>
+        </div>
+      </div>
+
+      <a href="consent.php" class="btn btn-light">Retake Assessment</a>
+    </section>
+
+    <!-- Recommendations Preview -->
+    <section class="recommendation-section">
+      <h2>Just For You</h2>
+
+      <div class="recommendation-card">
+        <div class="recommendation-left">
+          <h3>Little steps<br />make a big difference.</h3>
+        </div>
+        <div class="recommendation-right">
+          <p>
+            Carefully curated personalized routines selected just for you to help you evolve in your mental wellbeing journey
+          </p>
+          <a href="recommendations.html" class="btn btn-primary">View Recommendations</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <div class="container">
-    <h1>Your Personalized Tips</h1>
 
     <!-- Tip Card 1 -->
-    <div class="tip">
+    <div class="tip depression">
       <h3>🧘‍♀️ Breathing Exercise</h3>
       <p>Take 5 minutes daily to practice slow, deep breathing. This can calm your nervous system and reduce anxiety.</p>
       <div class="tip-buttons">
         <button>✅ Mark as Done</button>
-        <button>🔖 Bookmark</button>
       </div>
     </div>
 
     <!-- Tip Card 2 -->
-    <div class="tip">
+    <div class="tip anxiety">
       <h3>📓 Journaling</h3>
       <p>Write down your thoughts before sleep. It helps release tension and track your emotional patterns over time.</p>
       <div class="tip-buttons">
         <button>✅ Mark as Done</button>
-        <button>🔖 Bookmark</button>
       </div>
     </div>
 
     <!-- Tip Card 3 -->
-    <div class="tip">
+    <div class="tip stress">
       <h3>🚶‍♀️ Gentle Movement</h3>
       <p>Try a short walk or light stretching daily. Movement helps improve your mood and lower depressive symptoms.</p>
       <div class="tip-buttons">
         <button>✅ Mark as Done</button>
-        <button>🔖 Bookmark</button>
       </div>
     </div>
 
@@ -119,5 +120,11 @@
     </div>
   </div>
 
+   <!-- Footer -->
+  <footer class="site-footer">
+    <p>© Mindly · All rights reserved</p>
+    <a href="#">Privacy Policy</a>
+  </footer>
+  <script src="logout.js"></script>
 </body>
 </html>
