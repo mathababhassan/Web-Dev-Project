@@ -4,153 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Profile | Mindly</title>
-  <link rel="stylesheet" href="../assets/css/header.css" />
-
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: #f4f8fc;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 26px;
-      color: #1e3a8a;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      margin-bottom: 30px;
-    }
-
-    .section h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #444;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #c7d2fe;
-      border: none;
-      border-radius: 20px;
-      font-weight: bold;
-      color: #1e3a8a;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #a5b4fc;
-    }
-
-    .danger-zone {
-      background-color: #fef2f2;
-      border-left: 5px solid #dc2626;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .danger-zone button {
-      background-color: #fecaca;
-      color: #b91c1c;
-    }
-
-    .assessment-summary {
-      background-color: #f0f9ff;
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    .assessment-summary p {
-      margin: 8px 0;
-      color: #333;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/header.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/profile.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Profile</h1>
+   <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
+      <span class="site-name">Mindly</span>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.php">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="logout.php">Logout</a>
+    </nav>
+  </header>
 
-    <!-- Account Info -->
-    <form id="updateInfoForm" class="section" method="post" action="profile.php">
-      <h2>Edit Account Info</h2>
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Sarah Musa" />
+  <main class="profile-page">
+    
+    <!-- Profile Avatar Section -->
+    <div class="profile-avatar">
+      <div class="avatar-circle">
+        <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor"/>
+          <path d="M12 14C7.58172 14 4 17.5817 4 22H20C20 17.5817 16.4183 14 12 14Z" fill="currentColor"/>
+        </svg>
       </div>
-      <div class="form-group">
-        <label for="email">UTM Email</label>
-        <input type="email" id="email" name="email" placeholder="sarah@student.utm.my" />
-      </div>
-      <button type="submit" name="updateInfo">Save Changes</button>
-    </form>
+      <h1 class="welcome-text">Welcome back, Spongebob</h1>
+    </div>
 
-    <!-- Change Password -->
-    <form id="updatePasswordForm" class="section" method="post" action="profile.php">
-      <h2>Change Password</h2>
-      <div class="form-group">
-        <label for="current">Current Password</label>
-        <input type="password" id="current" name="current" required/>
-      </div>
-      <div class="form-group">
-        <label for="new">New Password</label>
-        <input type="password" id="new" name="new" required/>
-      </div>
-      <button type="submit" name="updatePassword" >Update Password</button>
-    </form>
-
-    <!-- Assessment History -->
+    <!-- Account Info Display Only -->
     <div class="section">
-      <h2>Assessment Summary</h2>
-      <div class="assessment-summary">
-        <p><strong>Last Taken:</strong> May 25, 2025</p>
-        <p><strong>Depression:</strong> Mild (10)</p>
-        <p><strong>Anxiety:</strong> Moderate (12)</p>
-        <p><strong>Stress:</strong> Normal (6)</p>
+      <h2>FULL NAME</h2>
+      <div class="form-group">
+        <input type="text" value="Spongebob Squarepants" readonly />
       </div>
     </div>
 
-    <!-- Danger Zone -->
-    <form id="deleteAccountForm" class="section danger-zone" method="post" action="delete_account.php">
-      <h2>⚠️ Delete Account</h2>
-      <p>This action is permanent and will remove all your data.</p>
-      <button type="submit" name="deleteAccount" >Delete My Account</button>
-  </form>
-<script src="profile.js"></script>
+    <div class="section">
+      <h2>EMAIL</h2>
+      <div class="form-group">
+        <input type="email" value="spongebob@krustycrab.com" readonly />
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>PASSWORD</h2>
+      <div class="form-group">
+        <input type="password" value="******************" readonly />
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button type="button" class="btn-primary" onclick="window.location.href='edit_profile.html'">EDIT DETAILS</button>
+      <button type="button" class="btn-danger" onclick="window.location.href='delete_profile.html'">DELETE ACCOUNT</button>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© Mindly · All rights reserved</p>
+    <a href="#">Privacy Policy</a>
+  </footer>
+
+  <script src="logout.js"></script>
 </body>
 </html>

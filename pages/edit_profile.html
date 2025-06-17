@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Profile | Mindly</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/header.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/profile.css">
+</head>
+<body>
+
+   <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
+      <span class="site-name">Mindly</span>
+    </div>
+    <nav class="nav-links">
+      <a href="dashboard.php">Dashboard</a>
+      <a href="profile.html">Profile</a>
+      <a href="logout.php">Logout</a>
+    </nav>
+  </header>
+
+  <main class="profile-page">
+    
+    <!-- Profile Avatar Section -->
+    <div class="profile-avatar">
+      <div class="avatar-circle">
+        <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor"/>
+          <path d="M12 14C7.58172 14 4 17.5817 4 22H20C20 17.5817 16.4183 14 12 14Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <h1 class="welcome-text">Edit Profile</h1>
+    </div>
+
+    <!-- Edit Profile Form -->
+    <form method="post" action="update_profile.php">
+      
+      <!-- Full Name Section -->
+      <div class="section">
+        <h2>FULL NAME</h2>
+        <div class="form-group">
+          <input type="text" id="name" name="name" value="Spongebob Squarepants" required />
+        </div>
+      </div>
+
+      <!-- Email Section -->
+      <div class="section">
+        <h2>EMAIL</h2>
+        <div class="form-group">
+          <input type="email" id="email" name="email" value="spongebob@krustycrab.com" required />
+        </div>
+      </div>
+
+      <!-- Current Password Section -->
+      <div class="section">
+        <h2>CURRENT PASSWORD</h2>
+        <div class="form-group">
+          <input type="password" id="current_password" name="current_password" placeholder="Enter current password" required />
+        </div>
+      </div>
+
+      <!-- New Password Section -->
+      <div class="section">
+        <h2>NEW PASSWORD</h2>
+        <div class="form-group">
+          <input type="password" id="new_password" name="new_password" placeholder="Enter new password (leave blank to keep current)" />
+        </div>
+      </div>
+
+      <!-- Confirm New Password Section -->
+      <div class="section">
+        <h2>CONFIRM NEW PASSWORD</h2>
+        <div class="form-group">
+          <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm new password" />
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button type="submit" class="btn-primary">SAVE CHANGES</button>
+        <button type="button" class="btn-secondary" onclick="window.location.href='profile.html'">CANCEL</button>
+      </div>
+
+    </form>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© Mindly · All rights reserved</p>
+    <a href="#">Privacy Policy</a>
+  </footer>
+
+  <script>
+    // Password confirmation validation
+    document.getElementById('confirm_password').addEventListener('input', function() {
+      const newPassword = document.getElementById('new_password').value;
+      const confirmPassword = this.value;
+      
+      if (newPassword && confirmPassword && newPassword !== confirmPassword) {
+        this.setCustomValidity('Passwords do not match');
+      } else {
+        this.setCustomValidity('');
+      }
+    });
+
+    // New password validation
+    document.getElementById('new_password').addEventListener('input', function() {
+      const confirmPassword = document.getElementById('confirm_password');
+      
+      if (this.value === '') {
+        confirmPassword.removeAttribute('required');
+        confirmPassword.value = '';
+      } else {
+        confirmPassword.setAttribute('required', 'required');
+      }
+    });
+  </script>
+  <script src="logout.js"></script>
+</body>
+</html>
