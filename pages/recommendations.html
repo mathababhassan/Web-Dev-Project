@@ -11,11 +11,9 @@
 </head>
 <body>
 
-  
-  <!-- Navbar -->
   <header class="navbar">
     <div class="logo-area">
-      <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
+      <img src="clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
       <span class="site-name">Mindly</span>
     </div>
     <nav class="nav-links">
@@ -25,68 +23,69 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="rec-page">
 
-    <!-- Rec Message Section -->
     <section class="rec-opening-section">
       <h1>Your Personalized Recommendations</h1>
 
       <div class="rec-card">
         <div class="rec-text">
           <p>
-            Based on your latest assessment, we’ve selected simple strategies to support your mental well-being. These tips are categorized by what you may be experiencing. Try the ones that feel right for you.
+            Based on your latest assessment, we've selected simple strategies to support your mental well-being. These tips are categorized by what you may be experiencing. Try the ones that feel right for you.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Tips Section -->
     <section class="tips-section">
 
-      <!-- Tip Card 1 -->
       <div class="tip stress">
-        <h3>❤️ For Tension or Feeling Overwhelmed</h3>
+        <h3>❤️ For Stress and Anxiety</h3>
         <ul>
           <li>Schedule just 5 minutes to pause and do nothing.</li>
           <li>Try a “brain dump” write down everything on your mind.</li>
           <li>Gently stretch your neck, shoulders, and back.</li>
         </ul>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/eZBa63NZbbE?si=AjFdBdhh0UV71Id8" title="YouTube video player" frameborder="2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
         <div class="tip-buttons">
-          <button>✅ Mark as Done</button>
+          <button onclick="toggleCompletion(this)" class="completion-btn not-completed">Mark as Completed</button>
         </div>
       </div>
 
-      <!-- Tip Card 2 -->
       <div class="tip anxiety">
-        <h3>💛 For Anxiety or Restlessness</h3>
+        <h3>💛 For Stress Relief</h3>
         <ul>
           <li>Try box breathing: Inhale for 4, hold for 4, exhale for 4.</li>
           <li>Write down what you can control right now.</li>
           <li>Unplug from your phone for 20 minutes and listen to calming sounds.</li>
         </ul>
-
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/yqeirBfn2j4?si=aiy80jspNrvknYgl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
         <div class="tip-buttons">
-          <button>✅ Mark as Done</button>
+          <button onclick="toggleCompletion(this)" class="completion-btn not-completed">Mark as Completed</button>
         </div>
       </div>
 
-      <!-- Tip Card 3 -->
       <div class="tip depression">
-        <h3>💛 For Anxiety or Restlessness</h3>
+        <h3>💛 When feeling Overwhelmed </h3>
         <ul>
-          <li>Write down 3 small wins from today—even if it’s just “I got out of bed.”</li>
+          <li>Write down 3 small wins from today—even if it's just “I got out of bed.”</li>
           <li>Try a 10-minute walk in fresh air.</li>
           <li>Call or text someone you trust and say hello.</li>
         </ul>
-
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/V8HilULDiuM?si=DFC3C7HA3qvDtRx2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
         <div class="tip-buttons">
-          <button>✅ Mark as Done</button>
+          <button onclick="toggleCompletion(this)" class="completion-btn not-completed">Mark as Completed</button>
         </div>
       </div>
     </section>
 
-     <section class="rec-closing-section">
+    <section class="rec-closing-section">
       <div class="rec-card">
         <div class="rec-text">
           <p>
@@ -94,15 +93,31 @@
           </p>
         </div>
       </div>
-      </section>
+    </section>
 
   </main>
 
-   <!-- Footer -->
   <footer class="site-footer">
     <p>© Mindly · All rights reserved</p>
     <a href="#">Privacy Policy</a>
   </footer>
+
+  <script>
+    function toggleCompletion(btn) { 
+      // Check the current text of the button
+      if (btn.innerHTML === "Mark as Completed") {
+        // If it's "Mark as Completed", change to "Completed"
+        btn.innerHTML = "Completed";
+        btn.classList.remove("not-completed");
+        btn.classList.add("completed");
+      } else {
+        // If it's "Completed", change back to "Mark as Completed"
+        btn.innerHTML = "Mark as Completed";
+        btn.classList.remove("completed");
+        btn.classList.add("not-completed");
+      }
+    }
+  </script>
   <script src="logout.js"></script>
 </body>
 </html>
