@@ -4,6 +4,7 @@
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
   const confirmInput = document.getElementById('confirm');
+  const errorBox = document.getElementById('js-error-box'); 
 
   form.addEventListener('submit', function (event) {
     const errors = [];
@@ -13,15 +14,10 @@
     const password = passwordInput.value;
     const confirm = confirmInput.value;
 
-    // Name validation
-    if (name === '') {
-      errors.push('Name is required.');
-    }
-
     // Email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      errors.push('Email is not valid.');
+      errors.push('Invalid email format.');
     }
 
     // Password validation
@@ -38,18 +34,16 @@
       errors.push('Password must contain at least one number.');
     }
     if (!/[!@#$%^&*]/.test(password)) {
-      errors.push('Password must contain at least one special character (!@#$%^&*).');
+      errors.push('Password must contain at least one special character (!@#$%^&*)');
     }
 
-    // Confirm password
-    if (password !== confirm) {
-      errors.push('Passwords do not match.');
-    }
-
-    // Show errors or allow submit
     if (errors.length > 0) {
-      event.preventDefault();
-      alert(errors.join('\n'));
-    }
+  event.preventDefault();
+  errorBox.innerHTML = errors.join('<br>');
+  errorBox.style.display = "block";
+} else {
+  errorBox.style.display = "none";
+}
+
   });
 })();

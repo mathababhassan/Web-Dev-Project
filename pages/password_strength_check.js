@@ -46,13 +46,4 @@ passwordInput.addEventListener("input", () => {
   strengthText.textContent = strengthLabels[score] || "";
   strengthText.style.color = barColors[score] || "#D73F40";
 });
-
-// Prevent form submission if password is weak
-form.addEventListener("submit", (e) => {
-  if (currentScore < 4) {
-    e.preventDefault();
-    alert("Your password is not strong enough. Please include a mix of uppercase, lowercase, numbers, and symbols.");
-    passwordInput.focus();
-  }
-});
 })();

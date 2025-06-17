@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Verify OTP | Mindly</title>
+    <link rel="stylesheet" href="../assets/css/auth.css" />
        
 </head>
 
@@ -59,13 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endif; ?>
 
         <form method="POST" id="otpForm">
-            <div class="otp-container">
-                <input type="text" maxlength="1" name="digit1" class="otp-box" required autofocus>
-                <input type="text" maxlength="1" name="digit2" class="otp-box" required>
-                <input type="text" maxlength="1" name="digit3" class="otp-box" required>
-                <input type="text" maxlength="1" name="digit4" class="otp-box" required>
-                <input type="text" maxlength="1" name="digit5" class="otp-box" required>
-                <input type="text" maxlength="1" name="digit6" class="otp-box" required>
+            <div class="input-container">
+                <input type="text" maxlength="1" name="digit1" class="input-box" required autofocus>
+                <input type="text" maxlength="1" name="digit2" class="input-box" required>
+                <input type="text" maxlength="1" name="digit3" class="input-box" required>
+                <input type="text" maxlength="1" name="digit4" class="input-box" required>
+                <input type="text" maxlength="1" name="digit5" class="input-box" required>
+                <input type="text" maxlength="1" name="digit6" class="input-box" required>
             </div>
             <input type="hidden" name="otp" id="otp">
             <button type="submit">Verify OTP</button>
