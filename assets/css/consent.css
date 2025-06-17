@@ -1,0 +1,269 @@
+/******** COLOR THEMES *******/
+body{
+    
+  background-color: var(--clr-background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--clr-text-dark);
+  margin: 0;
+
+}
+:root {
+  --clr-background: #f3fff8;
+  --clr-primary-dark: #0f766e;
+  --clr-primary: #14b8a6;
+  --clr-white: #fff;
+  --clr-offwhite: #fefefe;
+  --clr-text-dark: #134e4a;
+  --clr-shadow: rgba(15, 118, 110, 0.15);
+}
+
+/* Consent Page Styles */
+
+.consent-page {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: var(--clr-background);
+}
+
+.consent-section {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.consent-section h1 {
+    font-size: 2.5rem;
+    color: var(--clr-text-dark);
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.consent-card {
+    background: var(--clr-background);
+    border-radius: 15px;
+    overflow: hidden;
+    display: hidden;
+    margin: 0 auto;
+}
+
+/* Consent Notice Box */
+.consent-notice {
+    background-color: var(--clr-primary);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    margin: 0 auto;
+}
+
+.consent-notice p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Form Section */
+.consent-form {
+    padding: 40px 30px;
+}
+
+/* Checkbox Section */
+.consent-checkbox {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+    text-align: left;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.consent-checkbox label {
+    font-size: 1rem;
+    color: #2c3e50;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.pdpa-link {
+    color: var(--clr-text-dark);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.pdpa-link:hover {
+    color: var(--clr-primary);
+}
+
+/* Button Styling */
+.consent-button {
+    text-align: center;
+}
+
+.begin-assessment-btn {
+    background-color: var(--clr-primary);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.begin-assessment-btn:hover:not(:disabled) {
+    background-color: var(--clr-primary-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.begin-assessment-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.begin-assessment-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Error Message */
+.error-message {
+    background: #e74c3c;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Tablet Styles - 1024px and below */
+@media (max-width: 1024px) {
+    .consent-page {
+        padding: 30px 15px;
+    }
+    
+    .consent-section h1 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .consent-notice {
+        padding: 35px 25px;
+    }
+    
+    .consent-notice p {
+        font-size: 1.1rem;
+    }
+    
+    .consent-form {
+        padding: 35px 25px;
+    }
+    
+    .begin-assessment-btn {
+        padding: 14px 35px;
+        font-size: 1.05rem;
+    }
+}
+
+/* Mobile Styles - 768px and below */
+@media (max-width: 768px) {
+    .consent-page {
+        padding: 20px 10px;
+        min-height: calc(100vh - 120px);
+    }
+    
+    .consent-section {
+        max-width: 100%;
+    }
+    
+    .consent-section h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .consent-card {
+        border-radius: 12px;
+    }
+    
+    .consent-notice {
+        padding: 25px 20px;
+        border-width: 2px;
+    }
+    
+    .consent-notice p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .consent-form {
+        padding: 25px 20px;
+    }
+    
+    .consent-checkbox {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .consent-checkbox input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .consent-checkbox label {
+        font-size: 0.9rem;
+    }
+    
+    .begin-assessment-btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 30px;
+        font-size: 1rem;
+        min-width: auto;
+    }
+}
+
+/* Extra small mobile - 480px and below */
+@media (max-width: 480px) {
+    .consent-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .consent-notice {
+        padding: 20px 15px;
+    }
+    
+    .consent-notice p {
+        font-size: 0.9rem;
+    }
+    
+    .consent-form {
+        padding: 20px 15px;
+    }
+    
+    .consent-checkbox label {
+        font-size: 0.85rem;
+    }
+    
+    .begin-assessment-btn {
+        max-width: 250px;
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+}

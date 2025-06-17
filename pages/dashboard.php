@@ -68,7 +68,7 @@ if (mysqli_num_rows($result) > 0) {
             This short DASS-21 assessment helps you pause, reflect, and understand where you stand emotionally
             in terms of depression, anxiety, and stress. It's just a few minutes, for your peace of mind.
           </p>
-          <a href="assessment.html" class="btn btn-secondary">Take Assessment</a>
+          <a href="consent.php" class="btn btn-secondary">Take Assessment</a>
         </div>
       </div>
     </section>
@@ -92,7 +92,7 @@ if (mysqli_num_rows($result) > 0) {
         </div>
       </div>
 
-      <a href="assessment.html" class="btn btn-light">Retake Assessment</a>
+      <a href="consent.php" class="btn btn-light">Retake Assessment</a>
     </section>
 
     <!-- Recommendations Preview -->
