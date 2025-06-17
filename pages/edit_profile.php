@@ -1,3 +1,66 @@
+<?php
+session_start();
+include "connect.php";
+
+if (!isset($_SESSION['email'])) {
+  header("Location: login.html");
+  exit();
+}
+
+$email = $_SESSION['email'];
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  $name = trim($_POST['name']);
+  $newEmail = trim($_POST['email']);
+  $currentPassword = $_POST['current_password'];
+  $newPassword = $_POST['new_password'];
+  $confirmPassword = $_POST['confirm_password'];
+
+  $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
+
+  if (!$user || !password_verify($currentPassword, $user['password_hash'])) {
+    $_SESSION['message'] = "Current password is incorrect.";
+    header("Location: edit_profile.php");
+    exit();
+  }
+
+  if (!empty($newPassword)) {
+    if ($newPassword !== $confirmPassword) {
+      $_SESSION['message'] = "New passwords do not match.";
+      header("Location: edit_profile.php");
+      exit();
+    }
+    $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
+  } else {
+    $newPasswordHash = $user['password_hash'];
+  }
+
+  $update = $conn->prepare("UPDATE users SET name = ?, email = ?, password_hash = ? WHERE email = ?");
+  $update->bind_param("ssss", $name, $newEmail, $newPasswordHash, $email);
+
+  if ($update->execute()) {
+    $_SESSION['email'] = $newEmail;
+    $_SESSION['message'] = "Profile updated successfully.";
+    header("Location: profile.php");
+    exit();
+  } else {
+    $_SESSION['message'] = "Error updating profile.";
+    header("Location: edit_profile.php");
+    exit();
+  }
+} else {
+  $stmt = $conn->prepare("SELECT name, email FROM users WHERE email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $user = $result->fetch_assoc();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +74,7 @@
 </head>
 <body>
 
-   <!-- Navbar -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="logo-area">
       <img src="../assets/img/clr-primary-dark-logo.webp" alt="Mindly Logo" class="logo" />
@@ -19,14 +82,13 @@
     </div>
     <nav class="nav-links">
       <a href="dashboard.php">Dashboard</a>
-      <a href="profile.html">Profile</a>
+      <a href="profile.php">Profile</a>
       <a href="logout.php">Logout</a>
     </nav>
   </header>
 
   <main class="profile-page">
-    
-    <!-- Profile Avatar Section -->
+
     <div class="profile-avatar">
       <div class="avatar-circle">
         <svg class="avatar-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,26 +99,27 @@
       <h1 class="welcome-text">Edit Profile</h1>
     </div>
 
-    <!-- Edit Profile Form -->
-    <form method="post" action="update_profile.php">
-      
-      <!-- Full Name Section -->
+    <?php if (isset($_SESSION['message'])): ?>
+      <div class="success-box"><?= $_SESSION['message'] ?></div>
+      <?php unset($_SESSION['message']); ?>
+    <?php endif; ?>
+
+    <form method="post" action="edit_profile.php">
+
       <div class="section">
         <h2>FULL NAME</h2>
         <div class="form-group">
-          <input type="text" id="name" name="name" value="Spongebob Squarepants" required />
+          <input type="text" id="name" name="name" value="<?= htmlspecialchars($user['name']) ?>" required />
         </div>
       </div>
 
-      <!-- Email Section -->
       <div class="section">
         <h2>EMAIL</h2>
         <div class="form-group">
-          <input type="email" id="email" name="email" value="spongebob@krustycrab.com" required />
+          <input type="email" id="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required />
         </div>
       </div>
 
-      <!-- Current Password Section -->
       <div class="section">
         <h2>CURRENT PASSWORD</h2>
         <div class="form-group">
@@ -64,7 +127,6 @@
         </div>
       </div>
 
-      <!-- New Password Section -->
       <div class="section">
         <h2>NEW PASSWORD</h2>
         <div class="form-group">
@@ -72,7 +134,6 @@
         </div>
       </div>
 
-      <!-- Confirm New Password Section -->
       <div class="section">
         <h2>CONFIRM NEW PASSWORD</h2>
         <div class="form-group">
@@ -80,28 +141,24 @@
         </div>
       </div>
 
-      <!-- Action Buttons -->
       <div class="action-buttons">
         <button type="submit" class="btn-primary">SAVE CHANGES</button>
-        <button type="button" class="btn-secondary" onclick="window.location.href='profile.html'">CANCEL</button>
+        <button type="button" class="btn-secondary" onclick="window.location.href='profile.php'">CANCEL</button>
       </div>
 
     </form>
-
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <p>© Mindly · All rights reserved</p>
     <a href="#">Privacy Policy</a>
   </footer>
 
   <script>
-    // Password confirmation validation
-    document.getElementById('confirm_password').addEventListener('input', function() {
+    document.getElementById('confirm_password').addEventListener('input', function () {
       const newPassword = document.getElementById('new_password').value;
       const confirmPassword = this.value;
-      
+
       if (newPassword && confirmPassword && newPassword !== confirmPassword) {
         this.setCustomValidity('Passwords do not match');
       } else {
@@ -109,10 +166,9 @@
       }
     });
 
-    // New password validation
-    document.getElementById('new_password').addEventListener('input', function() {
+    document.getElementById('new_password').addEventListener('input', function () {
       const confirmPassword = document.getElementById('confirm_password');
-      
+
       if (this.value === '') {
         confirmPassword.removeAttribute('required');
         confirmPassword.value = '';
@@ -121,6 +177,5 @@
       }
     });
   </script>
-  <script src="logout.js"></script>
 </body>
 </html>
