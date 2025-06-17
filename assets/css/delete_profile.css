@@ -87,10 +87,14 @@
         .btn-primary {
             background-color: var(--clr-primary);
             color: var(--clr-white);
+            text-transform: uppercase;
         }
 
         .btn-primary:hover {
-            background-color: var(--clr-primary-dark);
+            background-color: white;
+            color: var(--clr-text-dark);
+            border: 1px solid var(--clr-text-dark);
+            text-transform: uppercase;
             transform: translateY(-2px);
         }
 
@@ -98,11 +102,13 @@
             background-color:white;
             border: 1px solid var(--clr-text-dark);
             color: var(--clr-text-dark);
+            text-transform: uppercase;
         }
 
         .btn-secondary:hover {
             background-color: var(--clr-primary-dark);
             color: white;
+            text-transform: uppercase;
             transform: translateY(-2px);
         }
 
