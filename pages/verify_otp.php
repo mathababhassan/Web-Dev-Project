@@ -26,12 +26,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $clear->bind_param("s", $email);
             $clear->execute();
 
+            // Get user_id
+            $id_stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");
+            $id_stmt->bind_param("s", $email);
+            $id_stmt->execute();
+            $id_result = $id_stmt->get_result();
+            $user = $id_result->fetch_assoc();
+
+            // Set session
+            $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['email'] = $email;
             unset($_SESSION['otp_email']);
+
             include "remember_handler.php";
 
             header("Location: dashboard.php");
             exit();
+
         } else {
             $message = " OTP is invalid or expired.";
         }
