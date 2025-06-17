@@ -1,71 +1,306 @@
-* {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+/********************************************
+  THEME COLORS (Root Variables)
+********************************************/
+:root {
+  --clr-background: #f3fff8;
+  --clr-primary-dark: #0f766e;
+  --clr-primary: #14b8a6;
+  --clr-white: #fff;
+  --clr-offwhite: #fefefe;
+  --clr-text-dark: #134e4a;
+  --clr-shadow: rgba(15, 118, 110, 0.15);
+}
 
-    body {
-      background-color: #f4f8fc;
-      margin: 0;
-      padding: 20px;
-    }
+body{
+  background-color: var(--clr-background);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--clr-text-dark);
+  margin: 0;
+}
+.rec-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 120px);
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
+/* Opening Section */
+.rec-opening-section {
+  margin-bottom: 2rem;
+}
 
-    h1 {
-      text-align: center;
-      font-size: 26px;
-      color: #1e3a8a;
-      margin-bottom: 20px;
-    }
+.rec-opening-section h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--clr-text-dark);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
 
-    .tip {
-      border-left: 5px solid #34d399;
-      background-color: #f0fdf4;
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 10px;
-    }
+/* Recommendation Cards */
+.rec-card {
+  background-color: var(--clr-primary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 
-    .tip h3 {
-      margin: 0 0 10px 0;
-      font-size: 18px;
-      color: #065f46;
-    }
+.rec-text p {
+  color: white;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin: 0;
+}
 
-    .tip p {
-      margin-bottom: 10px;
-      color: #444;
-    }
+/* Tips Section */
+.tips-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
 
-    .tip-buttons {
-      display: flex;
-      gap: 10px;
-    }
+/* Individual Tip Cards */
+.tip {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border-left: 5px solid;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .tip-buttons button {
-      padding: 8px 16px;
-      border: none;
-      border-radius: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      background-color: #dbeafe;
-      color: #1e40af;
-    }
+.tip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
-    .tip-buttons button:hover {
-      background-color: #bfdbfe;
-    }
+/* Tip Categories */
+.tip.stress {
+  border-left-color: #e74c3c;
+  background: linear-gradient(135deg, #ffeaea, #ffffff);
+}
 
-    .footer-note {
-      font-size: 13px;
-      color: #666;
-      text-align: center;
-      margin-top: 30px;
-    }
+.tip.anxiety {
+  border-left-color: #f39c12;
+  background: linear-gradient(135deg, #fff9e6, #ffffff);
+}
+
+.tip.depression {
+  border-left-color: #3498db;
+  background: linear-gradient(135deg, #e8f4fd, #ffffff);
+}
+
+/* Tip Headers */
+.tip h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--clr-text-dark);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin: -0.5rem -0.5rem 1rem -0.5rem;
+}
+
+.tip.stress h3 {
+  background: linear-gradient(135deg, #ff6b6b, #e74c3c);
+  color: white;
+}
+
+.tip.anxiety h3 {
+  background: linear-gradient(135deg, #ffd93d, #f39c12);
+  color: white;
+}
+
+.tip.depression h3 {
+  background: linear-gradient(135deg, #74b9ff, #3498db);
+  color: white;
+}
+
+/* Tip Lists */
+.tip ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.tip li {
+  color: black;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.tip li:before {
+  content: "•";
+  color: var(--clr-primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tip li:last-child {
+  margin-bottom: 0;
+}
+
+/* Tip Buttons */
+.tip-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.tip-buttons button {
+  background: var(--clr-primary-dark);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tip-buttons button:hover {
+  background: var(--clr-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tip-buttons button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Closing Section */
+.rec-closing-section {
+  margin-top: 2rem;
+}
+
+/* Tablet Styles - 1024px and below */
+@media screen and (max-width: 1024px) {
+  .rec-page {
+    padding: 1.5rem 1rem;
+  }
+
+  .rec-opening-section h1 {
+    font-size: 2.25rem;
+  }
+
+  .rec-card {
+    padding: 1.25rem;
+  }
+
+  .tip {
+    padding: 1.25rem;
+  }
+
+  .tip h3 {
+    font-size: 1.15rem;
+    margin: -0.25rem -0.25rem 1rem -0.25rem;
+  }
+
+  .tips-section {
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile Styles - 768px and below */
+@media screen and (max-width: 768px) {
+  .rec-page {
+    padding: 1rem 0.75rem;
+  }
+
+  .rec-opening-section h1 {
+    font-size: 1.875rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .rec-card {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .rec-text p {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .tips-section {
+    gap: 1rem;
+  }
+
+  .tip {
+    padding: 1rem;
+    margin-bottom: 0;
+  }
+
+  .tip h3 {
+    font-size: 1.1rem;
+    margin: -0.5rem -0.5rem 0.75rem -0.5rem;
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+  }
+
+  .tip li {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    padding-left: 1.25rem;
+  }
+
+  .tip-buttons button {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .rec-closing-section {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Extra small screens - 480px and below */
+@media screen and (max-width: 480px) {
+  .rec-page {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .rec-opening-section h1 {
+    font-size: 1.6rem;
+  }
+
+  .rec-card {
+    padding: 0.875rem;
+  }
+
+  .rec-text p {
+    font-size: 0.9rem;
+  }
+
+  .tip {
+    padding: 0.875rem;
+  }
+
+  .tip h3 {
+    font-size: 1rem;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .tip li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .tip-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

@@ -25,19 +25,15 @@
     </nav>
   </header>
 
-
-
   <!-- Main Content -->
-  <main class="dashboard-page">
+  <main class="rec-page">
 
     <!-- Rec Message Section -->
-    <section class="rec-section">
+    <section class="rec-opening-section">
       <h1>Your Personalized Recommendations</h1>
-
 
       <div class="rec-card">
         <div class="rec-text">
-          <strong>It's important to check in with yourself every now and then</strong>
           <p>
             Based on your latest assessment, we’ve selected simple strategies to support your mental well-being. These tips are categorized by what you may be experiencing. Try the ones that feel right for you.
           </p>
@@ -45,80 +41,62 @@
       </div>
     </section>
 
-    <!-- Results Summary -->
-    <section class="results-section">
-      <h2>Latest Assessment Results</h2>
+    <!-- Tips Section -->
+    <section class="tips-section">
 
-      <div class="results-grid">
-        <div class="result-card stress">
-          <p><strong>Stress</strong></p>
-          <span><?php echo $stress; ?></span>
-        </div>
-        <div class="result-card anxiety">
-          <p><strong>Anxiety</strong></p>
-          <span><?php echo $anxiety; ?></span>
-        </div>
-        <div class="result-card depression">
-          <p><strong>Depression</strong></p>
-          <span><?php echo $depression; ?></span>
+      <!-- Tip Card 1 -->
+      <div class="tip stress">
+        <h3>❤️ For Tension or Feeling Overwhelmed</h3>
+        <ul>
+          <li>Schedule just 5 minutes to pause and do nothing.</li>
+          <li>Try a “brain dump” write down everything on your mind.</li>
+          <li>Gently stretch your neck, shoulders, and back.</li>
+        </ul>
+        <div class="tip-buttons">
+          <button>✅ Mark as Done</button>
         </div>
       </div>
 
-      <a href="consent.php" class="btn btn-light">Retake Assessment</a>
+      <!-- Tip Card 2 -->
+      <div class="tip anxiety">
+        <h3>💛 For Anxiety or Restlessness</h3>
+        <ul>
+          <li>Try box breathing: Inhale for 4, hold for 4, exhale for 4.</li>
+          <li>Write down what you can control right now.</li>
+          <li>Unplug from your phone for 20 minutes and listen to calming sounds.</li>
+        </ul>
+
+        <div class="tip-buttons">
+          <button>✅ Mark as Done</button>
+        </div>
+      </div>
+
+      <!-- Tip Card 3 -->
+      <div class="tip depression">
+        <h3>💛 For Anxiety or Restlessness</h3>
+        <ul>
+          <li>Write down 3 small wins from today—even if it’s just “I got out of bed.”</li>
+          <li>Try a 10-minute walk in fresh air.</li>
+          <li>Call or text someone you trust and say hello.</li>
+        </ul>
+
+        <div class="tip-buttons">
+          <button>✅ Mark as Done</button>
+        </div>
+      </div>
     </section>
 
-    <!-- Recommendations Preview -->
-    <section class="recommendation-section">
-      <h2>Just For You</h2>
-
-      <div class="recommendation-card">
-        <div class="recommendation-left">
-          <h3>Little steps<br />make a big difference.</h3>
-        </div>
-        <div class="recommendation-right">
+     <section class="rec-closing-section">
+      <div class="rec-card">
+        <div class="rec-text">
           <p>
-            Carefully curated personalized routines selected just for you to help you evolve in your mental wellbeing journey
+            These recommendations are here to guide you but you don’t have to do everything at once. Choose what feels helpful today, and come back when you’re ready. These recommendations are here to guide you but you don’t have to do everything at once. Choose what feels helpful today, and come back when you’re ready.
           </p>
-          <a href="recommendations.html" class="btn btn-primary">View Recommendations</a>
         </div>
       </div>
-    </section>
+      </section>
 
   </main>
-
-  <div class="container">
-
-    <!-- Tip Card 1 -->
-    <div class="tip depression">
-      <h3>🧘‍♀️ Breathing Exercise</h3>
-      <p>Take 5 minutes daily to practice slow, deep breathing. This can calm your nervous system and reduce anxiety.</p>
-      <div class="tip-buttons">
-        <button>✅ Mark as Done</button>
-      </div>
-    </div>
-
-    <!-- Tip Card 2 -->
-    <div class="tip anxiety">
-      <h3>📓 Journaling</h3>
-      <p>Write down your thoughts before sleep. It helps release tension and track your emotional patterns over time.</p>
-      <div class="tip-buttons">
-        <button>✅ Mark as Done</button>
-      </div>
-    </div>
-
-    <!-- Tip Card 3 -->
-    <div class="tip stress">
-      <h3>🚶‍♀️ Gentle Movement</h3>
-      <p>Try a short walk or light stretching daily. Movement helps improve your mood and lower depressive symptoms.</p>
-      <div class="tip-buttons">
-        <button>✅ Mark as Done</button>
-      </div>
-    </div>
-
-    <div class="footer-note">
-      These tips are tailored to your current emotional scores. Revisit them regularly and track your progress in the dashboard.
-    </div>
-  </div>
 
    <!-- Footer -->
   <footer class="site-footer">

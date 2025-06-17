@@ -1,4 +1,4 @@
- const inputs = document.querySelectorAll('.otp-box');
+ const inputs = document.querySelectorAll('.input-box');
         inputs.forEach((input, index) => {
             input.addEventListener('input', () => {
                 if (input.value.length === 1 && index < inputs.length - 1) { // forward space if not the last field and a digit is inputted
